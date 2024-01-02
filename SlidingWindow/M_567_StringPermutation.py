@@ -5,7 +5,7 @@ def main():
 
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        start, end = 1, len(s1)
+        start, end = 0, len(s1)
         s1Map, s2Map = {}, {}
 
         if len(s1) > len(s2):
@@ -19,10 +19,10 @@ class Solution:
             return True
 
         for end in range(len(s1), len(s2)):
-            s2Map[s2[start - 1]] -= 1
+            s2Map[s2[start]] -= 1
 
-            if s2Map[s2[start - 1]] == 0:
-                del s2Map[s2[start - 1]]
+            if s2Map[s2[start]] == 0:
+                del s2Map[s2[start]]
 
             s2Map[s2[end]] = 1 + s2Map.get(s2[end], 0)
 

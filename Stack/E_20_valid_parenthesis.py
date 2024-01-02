@@ -4,15 +4,15 @@ def main():
     print(Solution().isValid("{({}[]})}"))
 
 class Solution:
-    def isValid(self, s: str) -> bool:
+    def isValid(self, string: str) -> bool:
         Map = {")": "(", "]": "[", "}": "{"}
         stack = []
 
-        for c in s:
-            if c not in Map:
-                stack.append(c)
+        for char in string:
+            if char not in Map:
+                stack.append(char)
                 continue
-            if not stack or stack[-1] != Map[c]:
+            if not stack or stack[-1] != Map[char]:
                 return False
             stack.pop()
 
